@@ -36,6 +36,17 @@ public class JsonConverter {
      */
     public static String convertToJson(Object toConvert){
         return gson.toJson(toConvert);
-
+    }
+    
+    /**
+     * this method returns true if the String passed can be convert into a Json. false otherwise.
+     */
+    public static boolean isJsonString(String toConvert) {
+        try {
+            gson.fromJson(toConvert, Object.class);
+            return true;
+        } catch (Exception exc) {
+            return false;
+        }
     }
 }
